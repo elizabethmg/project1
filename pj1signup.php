@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="signuphwstyle.css">
@@ -15,23 +14,25 @@
 <p align="center">Please fill out the page bellow</p>
 
 <div align="center">
-    <form ><br>
-    <input type="text" id="fname" placeholder="First Name" required><br><br>
+    <form action="pj1sql.php" method="POST"><br>
+    <input type="text" name="fname" placeholder="First Name" required><br><br>
 
-    <input type="text" id="lname" placeholder="Last Name" required><br><br>
+    <input type="text" name="lname" placeholder="Last Name" required><br><br>
 
-    <input type="text" id="email" placeholder="Email Address" required><br><br>
+    <input type="text" name="email" placeholder="Email Address" required><br><br>
 
-    <input type="text" id="phone" placeholder="Phone Number" required><br><br>
+    <input type="text" name="phone" placeholder="Phone Number" required><br><br>
 
-    <input type="text" id="birthday" placeholder="Birthday" required><br><br>
+    <input type="text" name="birthday" placeholder="Birthday" required><br><br>
 
-    <input type="text" id="gender" placeholder="Gender" required><br><br>
-	    
-  <button onclick="myFunction()">Sign Up</button></a>
+    <input type="text" name="gender" placeholder="Gender" required><br><br>
+
+    <a href="pj1login.php"><input type="submit" value="Sign Up"/></a>
+
   </form>
     
 </div>
 
 </body>
-</html> 
+</html>
+<?php require 'pj1sql.php'; ?>
