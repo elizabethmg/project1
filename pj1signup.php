@@ -27,8 +27,7 @@
     <input type="text" id="birthday" placeholder="Birthday" required><br><br>
 
     <input type="text" id="gender" placeholder="Gender" required><br><br>
-
-  <!-- <input align="center" type="submit" value="Sign Up"/> -->
+	    
   <button onclick="myFunction()">Sign Up</button></a>
   </form>
     
