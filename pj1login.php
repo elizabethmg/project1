@@ -10,16 +10,16 @@
 
 <p align="center">Please fill out the page bellow</p>
 
+Use your email to log in <?php echo $_POST["email"]; ?><br>
+
 <div align="center">
-    <form action="pj1sql.php" method="POST"><br>
-    <p>Your username is the email used from the sign up page.</p>
-    <input type="text" name="email" placeholder="Username" required><br><br>
 
-    <input type="text" name="password" placeholder="Password" required><br><br>
-    <input type="submit" value="Log In"/></a>
-
+    <form action="pj1sql.php" method="POST">
+	Email: <input type="text" name="email" required><br>
+	Password: <input type="text" name="password" required><br>
+	<input type="submit">
+</form>
 </div> 
 </body>
 
 </html>
-<?php require 'pj1sql.php'; ?>
