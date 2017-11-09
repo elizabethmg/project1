@@ -1,0 +1,69 @@
+<?php
+$hostname = "sql2.njit.edu";
+$username = "eg222";
+$password = "e47jkBzo";
+$conn = NULL;
+try 
+{
+    $conn = new PDO("mysql:host=$hostname;dbname=eg222",
+    $username, $password);
+    //echo 'hello';
+}
+catch(PDOException $e)
+{
+	// echo "Connection failed: " . $e->getMessage();
+	http_error("500 Internal Server Error\n\n"."There was a SQL error:\n\n" . $e->getMessage());
+}
+
+// Runs SQL query and returns results (if valid)
+function runQuery($query) {
+	global $conn;
+    try {
+		$q = $conn->prepare($query);
+		$q->execute();
+		$results = $q->fetchAll();
+		$q->closeCursor();
+		return $results;	
+	} catch (PDOException $e) {
+		http_error("500 Internal Server Error\n\n"."There was a SQL error:\n\n" . $e->getMessage());
+	}	  
+}
+
+function http_error($message) 
+{
+	header("Content-type: text/plain");
+	die($message);
+}
+
+?>
+
+<?php
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$birthday = $_POST['birthday'];
+$gender = $_POST['gender'];
+$password = $_POST['password'];
+
+$sql = "SELECT email FROM accounts WHERE email = '$email'";
+$results = runQuery($sql);
+
+if( count($results) > 0 ) {
+
+	echo "The email ". $email ." is already on file...";
+}
+
+else {
+	
+	$sql = "INSERT INTO accounts VALUES('', '$email', '$fname', '$lname', '$phone', '$birthday', '$gender', '$password')";
+	$results = runQuery($sql);
+
+    echo "You may now login with the email and password you used! " . $email;
+    //Tell user to go to previous page
+
+}
+
+
+
+?>
