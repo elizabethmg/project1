@@ -7,13 +7,15 @@
 
 </head>
 
-<body bgcolor="#cc99ff">
-  
-<h1 align="center">Welcome to the sign up page!</h1>
-
-<p align="center">Please fill out the page bellow</p>
+<body bgcolor="#66ccff">
 
 <div align="center">
+
+  <br><img src="welcome.gif" alt="welcome gif" style="width:300px;height:175px"><br>
+
+<h1 style="font-family:Lucida Console" align="center">Welcome to the sign up page!</h1>
+<p style="font-family:Lucida Console" align="center">Please fill out the page bellow</p>
+  
     <form action="pj1login.php" method="POST"><br>
     <form action="pj1sql.php" method="POST">
     <input type="text" name="fname" placeholder="First Name" required><br><br>
