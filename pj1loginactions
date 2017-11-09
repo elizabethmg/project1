@@ -1,0 +1,76 @@
+<?php
+$hostname = "sql2.njit.edu";
+$username = "eg222";
+$password = "e47jkBzo";
+$conn = NULL;
+try 
+{
+    $conn = new PDO("mysql:host=$hostname;dbname=eg222",
+    $username, $password);
+    //echo 'hello';
+}
+catch(PDOException $e)
+{
+	// echo "Connection failed: " . $e->getMessage();
+	http_error("500 Internal Server Error\n\n"."There was a SQL error:\n\n" . $e->getMessage());
+}
+
+// Runs SQL query and returns results (if valid)
+function runQuery($query) {
+	global $conn;
+    try {
+		$q = $conn->prepare($query);
+		$q->execute();
+		$results = $q->fetchAll();
+		$q->closeCursor();
+		return $results;	
+	} catch (PDOException $e) {
+		http_error("500 Internal Server Error\n\n"."There was a SQL error:\n\n" . $e->getMessage());
+	}	  
+}
+
+function http_error($message) 
+{
+	header("Content-type: text/plain");
+	die($message);
+}
+
+?>
+
+<html>
+	<head>
+		<title>Post Log In</title>
+	</head>
+<div align="center">
+		<br><img src="minions.gif" alt="hello gif" style="width:300px;height:175px">
+	<body bgcolor="#ffffcc">
+		
+	</body>
+
+</div>
+</html>
+
+<?php
+
+ $email = $_POST['email'];
+ $password = $_POST['password'];
+
+$sql = "SELECT*FROM accounts WHERE email = '$email' AND password='$password'";
+$results = runQuery($sql);
+
+	if( count($results) > 0 ) {
+			foreach($results as $row){
+			$fname = $row['fname'];
+			$lname = $row['lname'];
+		}
+
+    	echo "Hello " . $fname . " " . $lname."! Welcome!";
+	}
+
+	else {
+
+	    echo "That email and password combination is not on file, please try again...<br>";
+
+	}
+
+?>
