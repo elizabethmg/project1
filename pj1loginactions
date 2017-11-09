@@ -64,12 +64,13 @@ $results = runQuery($sql);
 			$lname = $row['lname'];
 		}
 
-    	echo "Hello " . $fname . " " . $lname."! Welcome!";
+    	echo "<div style ='font:18px/21px Lucida Console,tahoma,sans-serif;color:#000000;'>Hello $fname $lname! Welcome!</div><br>";
+    	//"Hello " . $fname . " " . $lname."! Welcome!";
 	}
 
 	else {
 
-	    echo "That email and password combination is not on file, please try again...<br>";
+	    echo "<br><div style ='font:18px/21px Lucida Console,tahoma,sans-serif;color:#000000;'>That email and password combination is not on file, please try again...</div><br>";
 
 	}
 
