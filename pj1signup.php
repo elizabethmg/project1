@@ -14,13 +14,14 @@
 <p align="center">Please fill out the page bellow</p>
 
 <div align="center">
-    <form action="pj1sql.php" method="POST"><br>
+    <form action="pj1login.php" method="POST"><br>
+    <form action="pj1sql.php" method="POST">
     <input type="text" name="fname" placeholder="First Name" required><br><br>
 
     <input type="text" name="lname" placeholder="Last Name" required><br><br>
 
     <input type="text" name="email" placeholder="Email Address" required><br><br>
-
+        
     <input type="text" name="phone" placeholder="Phone Number" required><br><br>
 
     <input type="text" name="birthday" placeholder="Birthday" required><br><br>
@@ -35,4 +36,3 @@
 
 </body>
 </html>
-<?php require 'pj1sql.php'; ?>
