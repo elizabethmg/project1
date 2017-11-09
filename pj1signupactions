@@ -37,6 +37,19 @@ function http_error($message)
 
 ?>
 
+<html>
+	<head>
+		<title>Post Sign Up</title>
+	</head>
+<div align="center">
+		<br><img src="omg.gif" alt="hello gif" style="width:300px;height:175px">
+	<body bgcolor="#ccccff">
+		
+	</body>
+
+</div>
+</html>
+
 <?php
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
@@ -46,22 +59,23 @@ $birthday = $_POST['birthday'];
 $gender = $_POST['gender'];
 $password = $_POST['password'];
 
+
+
 $sql = "SELECT email FROM accounts WHERE email = '$email'";
 $results = runQuery($sql);
 
 if( count($results) > 0 ) {
 
-	echo "The email ". $email ." is already on file...";
+	echo "<div style ='font:18px/21px Lucida Console,tahoma,sans-serif;color:#000000;'>The email $email is already on file...</div><br>";
 }
 
 else {
-	
+
 	$sql = "INSERT INTO accounts VALUES('', '$email', '$fname', '$lname', '$phone', '$birthday', '$gender', '$password')";
 	$results = runQuery($sql);
 
-    echo "You may now login with the email and password you used! " . $email;
-    //Tell user to go to previous page
-
+    echo "<div style ='font:18px/21px Lucida Console,tahoma,sans-serif;color:#000000;'>You may now login with the email and password you used</div><br>";
+  
 }
 
 
